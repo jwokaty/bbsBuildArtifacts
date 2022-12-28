@@ -11,7 +11,7 @@ valid_types = function() c("bioc", "data-experiment", "workflows", "books", "bio
 non_package_pattern = function() "\\.png$|\\.html$|\\.txt$|Renviron.*|\\.dcf$|\\.css$|report\\.js"
 
 build_report_tgz_url = function(version, type) {
-  stopifnot(type %in% valid_types())
+  #stopifnot(type %in% valid_types())
   sprintf("https://bioconductor.org/checkResults/%s/%s-LATEST/report.tgz", version, type)
 }
 
