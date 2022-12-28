@@ -23,17 +23,19 @@ pkgs_with_event = function(af, event="ERROR", phase="install", host="nebbiolo2")
 #' @param af2 instance of ArtifSet, later
 #' @param event character(1) one of "ERROR", "WARNINGS", "OK", "skipped", "TIMEOUT"
 #' @param phase character(1) one of "install", "buildsrc", "checksrc", "buildbin"
-#' @param host character(1) relevant hostname
+#' @param host1 character(1) relevant hostname
+#' @param host2 character(1) relevant hostname
 #' @examples
 #' af2 = make_demo_ArtifSet(url = demo_url2(), 
 #'        demostring = "test_report_3.14_bioc_20220105", destbase = "test_report_0105")
 #' af1 = make_demo_ArtifSet()
 #' new_events(af1, af2)
 #' @export
-new_events = function(af1, af2, event="ERROR", phase="checksrc", host="nebbiolo2") {
+new_events = function(af1, af2, event="ERROR", phase="checksrc", host1="nebbiolo2",
+                      host2="nebbiolo1") {
 # FIXME should check dates
-  p2 = pkgs_with_event(af2, event=event, phase=phase, host=host)
-  p1 = pkgs_with_event(af1, event=event, phase=phase, host=host)
+  p2 = pkgs_with_event(af2, event=event, phase=phase, host=host2)
+  p1 = pkgs_with_event(af1, event=event, phase=phase, host=host1)
   setdiff(p2$package, p1$package)
 }
 
