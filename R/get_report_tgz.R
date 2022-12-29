@@ -12,7 +12,7 @@ non_package_pattern = function() "\\.png$|\\.html$|\\.txt$|Renviron.*|\\.dcf$|\\
 
 build_report_tgz_url = function(version, type) {
   #stopifnot(type %in% valid_types())
-  sprintf("https://bioconductor.org/checkResults/%s/%s-LATEST/report.tgz", version, type)
+  sprintf("https://master.bioconductor.org/checkResults/%s/%s-LATEST/report.tgz", version, type)
 }
 
 
